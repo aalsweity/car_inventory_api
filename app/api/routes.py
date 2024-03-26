@@ -15,10 +15,10 @@ def getdata():
 @api.route('/inventory', methods = ['POST'])
 @token_required
 def create_car(current_user_token):
-    car_brand = request.json['car brand']
-    car_model = request.json['car model']
-    car_transmission = request.json['car transmission']
-    car_year = request.json['car year']
+    car_brand = request.json['car_brand']
+    car_model = request.json['car_model']
+    car_transmission = request.json['car_transmission']
+    car_year = request.json['car_year']
     user_token = current_user_token.token
 
     print(f'BIG TESTER: {current_user_token.token}')
@@ -50,10 +50,10 @@ def get_single_car(current_user_token, id):
 @token_required
 def update_contact(current_user_token,id):
     car = Car.query.get(id) 
-    car.car_brand = request.json['car brand']
-    car.car_model = request.json['car model']
-    car.car_transmission = request.json['car transmission']
-    car.car_year = request.json['car year']
+    car.car_brand = request.json['car_brand']
+    car.car_model = request.json['car_model']
+    car.car_transmission = request.json['car_transmission']
+    car.car_year = request.json['car_year']
     car.user_token = current_user_token.token
 
     db.session.commit()
